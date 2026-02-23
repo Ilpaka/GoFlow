@@ -19,7 +19,12 @@ func main() {
 	}
 
 	log := logger.New()
-	log.Info("application starting", "http_port", cfg.App.Port)
+	log.Info("application starting",
+		"http_port", cfg.App.Port,
+		"redis_addr", cfg.Redis.Addr,
+		"jwt_access_ttl_seconds", cfg.JWT.AccessTTLSeconds,
+		"jwt_refresh_ttl_seconds", cfg.JWT.RefreshTTLSeconds,
+	)
 
 	container := app.NewContainer(cfg, log)
 	application, err := app.New(container)
