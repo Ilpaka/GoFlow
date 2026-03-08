@@ -9,6 +9,7 @@ import (
 	"goflow/backend/internal/app"
 	"goflow/backend/internal/config"
 	"goflow/backend/internal/pkg/logger"
+	"goflow/backend/internal/repository/postgres"
 )
 
 func main() {
@@ -26,7 +27,14 @@ func main() {
 		"jwt_refresh_ttl_seconds", cfg.JWT.RefreshTTLSeconds,
 	)
 
-	container := app.NewContainer(cfg, log)
+	pool, err := postgres.NewPool(context.Background(), cfg.Postgres.DSN)
+	if err != nil {
+		log.Error("postgres pool", "err", err)
+		os.Exit(1)
+	}
+	defer pool.Close()
+
+	container := app.NewContainer(cfg, log, pool)
 	application, err := app.New(container)
 	if err != nil {
 		log.Error("failed to create application", "err", err)
