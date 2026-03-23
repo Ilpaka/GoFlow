@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"errors"
+	"io"
 	"log/slog"
 	"net/http"
 
@@ -101,6 +102,12 @@ func decodeJSON(w http.ResponseWriter, r *http.Request, dst any) error {
 		var maxErr *http.MaxBytesError
 		if errors.As(err, &maxErr) {
 			return apperr.Validation("request body too large", err)
+		}
+		return apperr.Validation("invalid json body", err)
+	}
+	if err := dec.Decode(&struct{}{}); err != io.EOF {
+		if err == nil {
+			return apperr.Validation("request body must be a single json object", nil)
 		}
 		return apperr.Validation("invalid json body", err)
 	}
