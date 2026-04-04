@@ -1,0 +1,15 @@
+# Локальная наглядная конфигурация. Переопределение через переменные окружения (см. internal/config).
+app:
+  port: "8080"
+
+postgres:
+  dsn: "postgres://messenger:messenger@localhost:5432/messenger?sslmode=disable"
+
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+
+jwt:
+  secret: "change-me-in-development-only"
+  token_ttl_seconds: 3600
