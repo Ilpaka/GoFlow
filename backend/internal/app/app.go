@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+
+	httptransport "goflow/backend/internal/transport/http"
 )
 
 type App struct {
@@ -19,10 +21,9 @@ func New(c *Container) (*App, error) {
 	}
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /health", func(w http.ResponseWriter, _ *http.Request) {
-		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte("ok"))
+	httptransport.Register(mux, &httptransport.Deps{
+		Config: c.Config,
+		Logger: c.Logger,
 	})
 
 	addr := fmt.Sprintf(":%s", c.Config.App.Port)
