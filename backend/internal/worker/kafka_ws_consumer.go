@@ -29,9 +29,9 @@ func (c *KafkaWSConsumer) Run(ctx context.Context) error {
 		return nil
 	}
 	r := kafkago.NewReader(kafkago.ReaderConfig{
-		Brokers:     c.Brokers,
-		GroupID:     c.GroupID,
-		Topic:       c.Topic,
+		Brokers: c.Brokers,
+		GroupID: c.GroupID,
+		Topic:   c.Topic,
 		// New consumer groups start at the oldest available offset so dev/relay-delivered
 		// events are not skipped before the reader attaches (tune for prod if replay is undesired).
 		StartOffset: kafkago.FirstOffset,

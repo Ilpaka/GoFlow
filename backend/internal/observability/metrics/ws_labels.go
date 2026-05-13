@@ -10,7 +10,7 @@ var wsEventAllowlist = map[string]struct{}{
 	"message.send": {}, "message.read": {},
 	"typing.start": {}, "typing.stop": {},
 	"typing.started": {}, "typing.stopped": {},
-	"error": {},
+	"error":           {},
 	"message.created": {}, "message.updated": {}, "message.deleted": {}, "message.read_receipt": {},
 }
 

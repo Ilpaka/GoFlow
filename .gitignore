@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Go build artifacts
+bin/
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Logs
+*.log
+
+# Env / secrets
+.env
+.env.local
+backend/.env
+
+# Docker volumes (if mounted locally)
+backend/deployments/data/

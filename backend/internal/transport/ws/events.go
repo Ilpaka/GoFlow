@@ -17,9 +17,9 @@ const (
 	EventMessageDeleted = "message.deleted"
 	// EventMessageReadReceipt is emitted on the wire after a read (Kafka → consumer → hub).
 	EventMessageReadReceipt = "message.read_receipt"
-	EventTypingStarted  = "typing.started"
-	EventTypingStopped  = "typing.stopped"
-	EventError          = "error"
+	EventTypingStarted      = "typing.started"
+	EventTypingStopped      = "typing.stopped"
+	EventError              = "error"
 )
 
 // Envelope is the wire format for both directions.

@@ -21,7 +21,7 @@ type Config struct {
 	RateLimit     RateLimitConfig     `yaml:"rate_limit"`
 	Kafka         KafkaConfig         `yaml:"kafka"`
 	WS            WSConfig            `yaml:"ws"`
-	Runtime       RuntimeConfig     `yaml:"runtime"`
+	Runtime       RuntimeConfig       `yaml:"runtime"`
 	Observability ObservabilityConfig `yaml:"observability"`
 }
 

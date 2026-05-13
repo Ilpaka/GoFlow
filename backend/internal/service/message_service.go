@@ -389,9 +389,9 @@ func (s *MessageService) outboxForMessageDeleted(m *domain.Message) (repository.
 
 func (s *MessageService) outboxForReadReceipt(chatID, userID, messageID domain.ID) (repository.OutboxEnqueue, error) {
 	body := map[string]any{
-		"chat_id":               string(chatID),
-		"user_id":               string(userID),
-		"last_read_message_id":  string(messageID),
+		"chat_id":              string(chatID),
+		"user_id":              string(userID),
+		"last_read_message_id": string(messageID),
 	}
 	raw, err := json.Marshal(body)
 	if err != nil {

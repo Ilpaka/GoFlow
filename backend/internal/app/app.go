@@ -20,11 +20,11 @@ import (
 
 type App struct {
 	container *Container
-	server      *http.Server
-	hub         *wstransport.Hub
-	bgCancel    context.CancelFunc
-	bgWG        sync.WaitGroup
-	kafkaProd   *kafka.Producer
+	server    *http.Server
+	hub       *wstransport.Hub
+	bgCancel  context.CancelFunc
+	bgWG      sync.WaitGroup
+	kafkaProd *kafka.Producer
 }
 
 func New(c *Container) (*App, error) {
@@ -146,19 +146,19 @@ func New(c *Container) (*App, error) {
 	}
 
 	httptransport.Register(mux, &httptransport.Deps{
-		Config:            c.Config,
-		Logger:            c.Logger,
-		Metrics:           c.Metrics,
-		Auth:              authSvc,
-		Users:             userSvc,
-		Chats:             chatSvc,
-		Messages:          msgSvc,
-		WS:                wsHTTP,
-		WSTicket:          wsTicketHTTP,
-		LimitRegister:     registerLim,
-		LimitLogin:        loginLim,
-		LimitMessageSend:  msgSendLim,
-		LimitWSConnect:    wsConnectLim,
+		Config:           c.Config,
+		Logger:           c.Logger,
+		Metrics:          c.Metrics,
+		Auth:             authSvc,
+		Users:            userSvc,
+		Chats:            chatSvc,
+		Messages:         msgSvc,
+		WS:               wsHTTP,
+		WSTicket:         wsTicketHTTP,
+		LimitRegister:    registerLim,
+		LimitLogin:       loginLim,
+		LimitMessageSend: msgSendLim,
+		LimitWSConnect:   wsConnectLim,
 	})
 
 	addr := fmt.Sprintf(":%s", c.Config.App.Port)

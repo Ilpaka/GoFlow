@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	apperr "goflow/backend/internal/pkg/errors"
 	"goflow/backend/internal/domain"
+	apperr "goflow/backend/internal/pkg/errors"
 )
 
 // WSTicketIssuer abstracts Redis-backed WS tickets (implemented by redis.WSTicketStore).

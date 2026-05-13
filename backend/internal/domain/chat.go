@@ -19,13 +19,13 @@ type Chat struct {
 
 // ChatMember links a user to a chat with per-chat preferences.
 type ChatMember struct {
-	ChatID              ID
-	UserID              ID
-	Role                ChatMemberRole
-	JoinedAt            time.Time
-	LastReadMessageID   *ID
-	LastReadAt          *time.Time
-	IsMuted             bool
-	IsArchived          bool
-	IsPinned            bool
+	ChatID            ID
+	UserID            ID
+	Role              ChatMemberRole
+	JoinedAt          time.Time
+	LastReadMessageID *ID
+	LastReadAt        *time.Time
+	IsMuted           bool
+	IsArchived        bool
+	IsPinned          bool
 }

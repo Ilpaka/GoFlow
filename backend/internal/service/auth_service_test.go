@@ -14,9 +14,9 @@ import (
 func testAuthConfig() *config.Config {
 	return &config.Config{
 		JWT: config.JWTConfig{
-			Secret:              "local-dev-only-change-in-prod-min-16",
-			AccessTTLSeconds:    900,
-			RefreshTTLSeconds:   604800,
+			Secret:            "local-dev-only-change-in-prod-min-16",
+			AccessTTLSeconds:  900,
+			RefreshTTLSeconds: 604800,
 		},
 	}
 }

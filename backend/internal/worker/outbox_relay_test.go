@@ -37,10 +37,10 @@ func (f *fakeKafkaPub) Publish(ctx context.Context, key string, value []byte) er
 }
 
 type fakeDeliver struct {
-	chats  []domain.ID
-	envs   [][]byte
-	err    error
-	calls  int
+	chats []domain.ID
+	envs  [][]byte
+	err   error
+	calls int
 }
 
 func (f *fakeDeliver) DeliverEnvelopeBytes(ctx context.Context, chatID domain.ID, payload []byte) error {
